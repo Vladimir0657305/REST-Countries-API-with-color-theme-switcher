@@ -107,9 +107,7 @@ export const Info = (props) => {
     const [neighbors, setNeighbors] = useState([]);
 
     useEffect(() => {
-        axios.get(filterByCode(borders)).then(
-            ({data}) => console.log(data)
-        )
+        axios.get(filterByCode(borders)).then(({ data }) => setNeighbors(data.map(c => c.name)))
     }, [borders])
 
     return (
@@ -154,7 +152,7 @@ export const Info = (props) => {
                     ) : (
                         <TagGroup>
                             {
-                                borders.map(b => (<Tag key={b}>{b}</Tag>))
+                                neighbors.map(b => (<Tag key={b}>{b}</Tag>))
                             }
                         </TagGroup>
                     )}
