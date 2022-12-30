@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 
 import { Header } from './components/Header';
 import './App.css';
-import {Main} from './components/Main';
-import {HomePage} from './pages/HomePage';
-import {Details} from './pages/Details';
-import {NotFound} from './pages/NotFound';
+// import {Main} from './components/Main';
+// import {HomePage} from './pages/HomePage';
+// import {Details} from './pages/Details';
+// import {NotFound} from './pages/NotFound';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
