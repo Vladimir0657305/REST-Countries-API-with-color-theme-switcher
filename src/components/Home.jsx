@@ -3,7 +3,11 @@ import './Home.scss';
 export default function Home({ countries, setCountries }){
     const { v4: uuidv4 } = require('uuid');
     // console.log(countries[0]['flags']['png']);
-    console.log(countries[0]);
+    // console.log(countries[0]);
+    const onClickDetails = () => {
+        
+    }
+
     return(
         <div className='home'>
             <div className='homeList'>
@@ -13,7 +17,7 @@ export default function Home({ countries, setCountries }){
                     <div className="block-home">
                         <img key={uuidv4()} src={c['flags']['png']} />
                         <br/>
-                        <span key={uuidv4()}><b>{c.name}</b></span>
+                        <span key={uuidv4()} onClick={onClickDetails}><b>{c.name}</b></span>
                         <br />
                         <span key={uuidv4()}><b>Population: </b>{c.population}</span>
                         <br />
