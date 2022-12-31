@@ -1,9 +1,16 @@
+import { useContext, useState } from 'react';
 import './Home.scss';
+import { SearchContext } from '../App';
+
 
 export default function Home({ countries, setCountries }){
     const { v4: uuidv4 } = require('uuid');
+    const { searchNameValue, setSearchNameValue } = useContext(SearchContext);
+    const { region, setRegion } = useContext(SearchContext);
     // console.log(countries[0]['flags']['png']);
     // console.log(countries[0]);
+    // console.log(region.value);
+    
     const onClickDetails = () => {
         
     }
@@ -12,9 +19,11 @@ export default function Home({ countries, setCountries }){
         <div className='home'>
             <div className='homeList'>
                 {
-                // countries.map(c => (c['flags']['png']))
-                countries.map(c => 
-                    <div className="block-home">
+                    countries.filter(item => 
+                        
+                        item.name.toLowerCase().includes(searchNameValue.toLowerCase()) 
+                    ).map(c => 
+                    <div className="block-home" key={uuidv4()}>
                         <img key={uuidv4()} src={c['flags']['png']} />
                         <br/>
                         <span key={uuidv4()} onClick={onClickDetails}><b>{c.name}</b></span>

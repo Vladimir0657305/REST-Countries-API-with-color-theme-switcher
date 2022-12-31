@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
+import React, { createRef, useContext, useEffect, useState } from 'react';
 import Select from 'react-select'
 import { IoSearch } from 'react-icons/io5';
+
 import './Main.scss';
+import { SearchContext } from '../App';
+// import SearchContext from './context';
 
 const options = [
     { value: 'Africa', label: 'Africa' },
-    { value: 'America', label: 'America' },
+    { value: 'Americas', label: 'America' },
     { value: 'Asia', label: 'Asia' },
     { value: 'Europe', label: 'Europe' },
     { value: 'Oceania', label: 'Oceania' },
 ];
 
 export default function Main () {
-    const [search, setSearch] = useState('');
-    const [region, setRegion] = useState('');
+    const {region, setRegion} = useContext(SearchContext);
+    const { searchNameValue, setSearchNameValue } = useContext(SearchContext);
+    const [selectVal, setSelectVal] = useState('');
+
+    const onClickChangeSearch = (event) => {
+        event.preventDefault();
+        setSearchNameValue(event.target.value);
+    }
+    
+    useEffect(() => { 
+        setRegion(selectVal.value);
+    }, [selectVal.value]);
 
 
-
-    const colourOptions = [
-        { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-        { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
-        { value: 'purple', label: 'Purple', color: '#5243AA' },
-        { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-        { value: 'orange', label: 'Orange', color: '#FF8B00' },
-        { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-        { value: 'green', label: 'Green', color: '#36B37E' },
-        { value: 'forest', label: 'Forest', color: '#00875A' },
-        { value: 'slate', label: 'Slate', color: '#253858' },
-        { value: 'silver', label: 'Silver', color: '#666666' },
-    ];
-
+    // console.log(region.value);
 
     return(
         <>
@@ -37,11 +37,11 @@ export default function Main () {
                 <form className='inp'>
                     <label>
                         <IoSearch styles={{width: '300px' }}/>
-                        <input name="name" type='search' placeholder='Search for a country...'/>
+                        <input value={searchNameValue} onChange={onClickChangeSearch} name="name" type='search' placeholder='Search for a country...'/>
                     </label>
                 </form>
 
-                <Select styles={{
+                <Select  styles={{
                     singleValue: (base) => ({
                         ...base,
                         padding: 5,
@@ -49,7 +49,8 @@ export default function Main () {
                         // background: colourOptions[4].color,
                         // color: 'white',
                         // display: 'flex',
-                    })}} 
+                    })}}
+                    onChange={setSelectVal} 
                     options={options} placeholder='Filter by Region' isClearable={true} className='block-select'/>
 
                 
