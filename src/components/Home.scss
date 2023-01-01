@@ -40,4 +40,9 @@
         font-weight: var(--colors-bold);
         font-weight: 800;
     }
+
+    & span:first-of-type {
+        cursor: pointer;
+        font-weight: 800;
+    }
 }

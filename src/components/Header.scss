@@ -14,11 +14,18 @@
     align-items: center;
     width: 100%;
     max-width: 1240px;
+    text-decoration: none;
     
     & span {
         display: flex;
         align-items: center;
         gap: 10px;
         cursor: pointer;
+    }
+
+    & h3, a {
+        background-color: var(--colors-ui-base);
+        color: var(--colors-text);
+        text-decoration: none;
     }
 }

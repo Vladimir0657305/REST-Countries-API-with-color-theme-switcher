@@ -1,6 +1,7 @@
 import { IoMoon, IoMoonOutline, IoSunnyOutline, IoSunny } from 'react-icons/io5';
 import React, {useEffect, useState} from 'react';
 import './Header.scss';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     const [theme, setTheme] = useState('Dark');
@@ -24,7 +25,8 @@ export default function Header() {
     return(
         <div className='container'>
             <div className='menu'>
-                <h3>Where in the world?</h3>
+                <Link to="/"><h3>Where in the world?</h3></Link>
+                
                 <span onClick={changeTheme}> 
                         {theme === 'Light' ? (
                             <IoSunny size="14px" />

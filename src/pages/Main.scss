@@ -46,6 +46,7 @@
     color: var(--colors-text);
     box-shadow: var(--shadow);
     padding: 5px;
+    border: none !important;
     // font-size: 16px !important;
     
     &>div[id] {
@@ -53,10 +54,33 @@
             color: var(--colors-text);
         };
 
-    // outline: none;
-    // border: none;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    & :focus {
+        border: none !important;
+    }
+
+    & * {
+        color: var(--colors-text) !important;
+        border: none !important;
+        &:focus {
+            border: none !important;
+        }
+    }
 }
 
+.selectStyle {
+
+    &__option {
+        background-color: var(--colors-ui-base) !important;
+        color: var(--colors-text) !important;
+
+        &--is-focused {
+            background-color: lightblue !important;
+            border: none !important;
+        }
+    }
+
+    &__control {
+        background-color: var(--colors-ui-base) !important;
+        color: var(--colors-text) !important;
+    }
+}

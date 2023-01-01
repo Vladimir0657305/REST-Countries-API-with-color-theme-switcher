@@ -1,10 +1,9 @@
-import React, { createRef, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Select from 'react-select'
 import { IoSearch } from 'react-icons/io5';
 
 import './Main.scss';
 import { SearchContext } from '../App';
-// import SearchContext from './context';
 
 const options = [
     { value: 'Africa', label: 'Africa' },
@@ -18,19 +17,19 @@ export default function Main () {
     const {region, setRegion} = useContext(SearchContext);
     const { searchNameValue, setSearchNameValue } = useContext(SearchContext);
     const [selectVal, setSelectVal] = useState('');
+    
 
     const onClickChangeSearch = (event) => {
         event.preventDefault();
         setSearchNameValue(event.target.value);
     }
     
-    useEffect(() => { 
-        setRegion(selectVal.value);
-    }, [selectVal.value]);
-
-
-    // console.log(region.value);
-
+    useEffect(() => {
+        const regionValue = selectVal?.value || undefined; 
+        setRegion(regionValue);
+    }, [selectVal?.value]);
+    
+    
     return(
         <>
             <div className='block-input'>
@@ -41,15 +40,15 @@ export default function Main () {
                     </label>
                 </form>
 
-                <Select  styles={{
-                    singleValue: (base) => ({
-                        ...base,
-                        padding: 5,
-                        borderRadius: 5,
-                        // background: colourOptions[4].color,
-                        // color: 'white',
-                        // display: 'flex',
-                    })}}
+                <Select  
+                    classNamePrefix='selectStyle'
+                    styles={{
+                        control: (baseStyles, state) => ({
+                            ...baseStyles,
+                            borderColor: 'var(--colors-ui-base)',
+                            borderColor: state.isHover ? 'var(--colors-ui-base)' : 'var(--colors-ui-base)',
+                        }),
+                    }}
                     onChange={setSelectVal} 
                     options={options} placeholder='Filter by Region' isClearable={true} className='block-select'/>
 
