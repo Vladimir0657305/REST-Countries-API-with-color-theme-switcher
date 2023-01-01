@@ -11,7 +11,7 @@ export default function Detail(match) {
     let navigate = useNavigate();
     const [country, setCountry] = useState(null);
     // console.log(match.params);
-    // console.log(country);
+    console.log(country);
     
     useEffect(() => {
         axios.get(searchByCountry(name)).then(
@@ -21,7 +21,7 @@ export default function Detail(match) {
     
     return (
         <div className="detail">
-            <button onClick={() => navigate(-1)}>
+            <button onClick={() => navigate(-1)} className='detBut'>
                 <IoArrowBackOutline /> <p>Back</p>
             </button>
             {country && (<Info navigate={navigate} {...country} />)}

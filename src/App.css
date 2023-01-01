@@ -24,6 +24,7 @@ body[data-theme='Light'] {
   --colors-ui-base: hsl(209, 23%, 22%);
 
   --shadow: rgba(245, 245, 245, 0.2) 0px 0px 8px;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body[data-theme='Dark'] {
@@ -33,10 +34,11 @@ body[data-theme='Dark'] {
   --colors-ui-alt: hsl(200, 15%, 8%);
 
   --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: var(--family);
   color: var(--colors-text);
   font-weight: var(--fw-light);

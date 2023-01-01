@@ -1,5 +1,5 @@
 .block-input {
-    width: 100%;
+    // width: 90%;
     max-width: 1240px;
     display: flex;
     justify-content: space-between;
@@ -11,6 +11,7 @@
 
 .inp {
     margin-top: 30px;
+    margin-left: 10px;
     background-color: var(--colors-ui-base);
     color: var(--colors-text);
     width: 400px;
@@ -36,16 +37,36 @@
         border: none;
         font-size: 16px;
     }
+    
 }
+@media(max-width: 400px) {
+        .inp {
+            width: 300px;
+            margin-left: 10px;
+            & label {
+                display: flex;
+            }
+            & input {
+                width: 90%;
+            }
+        }
+        .block-select {
+            margin-left: 10px;
+        }
+    }
+
 
 .block-select {
     margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
     width: 300px;
     height: 50px;
     background-color: var(--colors-ui-base);
     color: var(--colors-text);
     box-shadow: var(--shadow);
     padding: 5px;
+    border-radius: var(--radius);
     border: none !important;
     // font-size: 16px !important;
     

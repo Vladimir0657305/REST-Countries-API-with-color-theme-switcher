@@ -4,8 +4,9 @@
     margin: 0 auto;
     
 
-    & button {
+    & .detBut {
         margin-top: 2rem;
+        margin-left: 10px;
         background-color: var(--colors-ui-base) !important;
         color: var(--colors-text) !important;
         border: none;
@@ -13,6 +14,7 @@
         border-radius: var(--radius);
         display: flex;
         align-items: center;
+        box-shadow: var(--shadow);
         &  p {
             margin-left: 5px;
         }

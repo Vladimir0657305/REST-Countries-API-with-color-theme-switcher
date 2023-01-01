@@ -2,6 +2,7 @@ import './Info.scss';
 
 
 export default function Info(props) {
+    const { v4: uuidv4 } = require('uuid');
     const {
         name,
         nativeName,
@@ -16,6 +17,7 @@ export default function Info(props) {
         borders = [],
         navigate
     } = props;
+    console.log(borders);
     return(
         <div className="info">
             <img src={flag} alt={name} />
@@ -27,7 +29,9 @@ export default function Info(props) {
                     <li><b>Region:</b> {region}</li>
                     <li><b>Sub Region:</b> {subregion}</li>
                     <li><b>Capital:</b> {capital}</li>
-                    <li><b>Border countries: </b></li>
+                    {/* <li className='clLi'><b>Border countries: </b>{
+                        borders.map(b => <button>{b}</button> )
+                        }</li> */}
                 </ul>
                 <ul>
                     <li><b>Top Level Domain:</b> {topLevelDomain.map(d => (<span key={d}>{d}</span>))}</li>
@@ -36,7 +40,11 @@ export default function Info(props) {
                 </ul>
                 
             </div>
-            
+            <span className='clLi'><b>Border countries: </b>
+            {
+                borders.map(b => <button key={uuidv4()}>{b}</button>)
+            }
+            </span>
         </div>
     );
 }

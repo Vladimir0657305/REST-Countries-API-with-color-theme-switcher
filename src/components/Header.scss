@@ -13,11 +13,13 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-left: 10px;
     max-width: 1240px;
     text-decoration: none;
     
     & span {
         display: flex;
+        margin-right: 10px;
         align-items: center;
         gap: 10px;
         cursor: pointer;
@@ -27,5 +29,10 @@
         background-color: var(--colors-ui-base);
         color: var(--colors-text);
         text-decoration: none;
+    }
+}
+@media(max-width: 380px) {
+    .menu {
+        font-size: var(--fs-sm);
     }
 }
