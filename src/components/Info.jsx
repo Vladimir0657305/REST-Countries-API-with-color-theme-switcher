@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { filterByCode } from '../pages/config';
 import './Info.scss';
 
 
@@ -17,8 +20,13 @@ export default function Info(props) {
         borders = [],
         navigate
     } = props;
-    console.log(borders);
-    return(
+    const [neighbour, setNeighbour] = useState([]);
+
+    useEffect(() => {
+        borders.length && axios.get(filterByCode(borders)).then(({ data }) => setNeighbour(data))
+    }, [])
+
+    return (
         <div className="info">
             <img src={flag} alt={name} />
             <div className='info-block'>
@@ -29,22 +37,22 @@ export default function Info(props) {
                     <li><b>Region:</b> {region}</li>
                     <li><b>Sub Region:</b> {subregion}</li>
                     <li><b>Capital:</b> {capital}</li>
-                    {/* <li className='clLi'><b>Border countries: </b>{
-                        borders.map(b => <button>{b}</button> )
-                        }</li> */}
                 </ul>
                 <ul>
                     <li><b>Top Level Domain:</b> {topLevelDomain.map(d => (<span key={d}>{d}</span>))}</li>
                     <li><b>Currency:</b> {currencies.map(c => (<span key={c.code}>{c.name}</span>))}</li>
                     <li><b>Top Level Domain:</b> {topLevelDomain.map(l => (<span key={l}>{l}</span>))}</li>
                 </ul>
-                
+
             </div>
-            <span className='clLi'><b>Border countries: </b>
             {
-                borders.map(b => <button key={uuidv4()}>{b}</button>)
+                borders.length &&
+                <span className='clLi'><b>Border countries: </b>
+                    {
+                        neighbour.map(b => <button key={uuidv4()} className='infoButton' onClick={() => navigate(`/country/${b.name}`)}>{b.name}</button>)
+                    }
+                </span>
             }
-            </span>
         </div>
     );
 }

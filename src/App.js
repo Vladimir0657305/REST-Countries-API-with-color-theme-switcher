@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect, createContext } from 'react';
 
-import  Header  from './components/Header';
+import Header from './components/Header';
 import './App.css';
 import Main from './pages/Main';
 // import {HomePage} from './pages/HomePage';
@@ -21,28 +21,28 @@ function App() {
   const [region, setRegion] = useState('');
   // console.log(region);
 
-    useEffect(() => {
+  useEffect(() => {
     axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
   }, [])
-  
+
   useEffect(() => {
     {
-      if(region) {axios.get(searchByRegion(region)).then(({ data }) => setCountries(data)) }
+      if (region) { axios.get(searchByRegion(region)).then(({ data }) => setCountries(data)) }
       else { axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data)) }
     }
   }, [region])
-  
+
 
 
   return (
     <>
       <SearchContext.Provider value={{ searchNameValue, setSearchNameValue, region, setRegion }}>
-        <Header/>
-        <Main/>
+        <Header />
+        <Main />
         <Routes>
           <Route path='/' element={<Home countries={countries} setCountries={setCountries} />} />
           <Route path='/country/:name' element={<Detail />} />
-          {/* <Route path='*' element={<Notfound />} /> */}
+          <Route path='*' element={<Notfound />} />
         </Routes>
       </SearchContext.Provider>
     </>

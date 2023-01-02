@@ -13,34 +13,34 @@ const options = [
     { value: 'Oceania', label: 'Oceania' },
 ];
 
-export default function Main () {
-    const {region, setRegion} = useContext(SearchContext);
+export default function Main() {
+    const { region, setRegion } = useContext(SearchContext);
     const { searchNameValue, setSearchNameValue } = useContext(SearchContext);
     const [selectVal, setSelectVal] = useState('');
-    
+
 
     const onClickChangeSearch = (event) => {
         event.preventDefault();
         setSearchNameValue(event.target.value);
     }
-    
+
     useEffect(() => {
-        const regionValue = selectVal?.value || undefined; 
+        const regionValue = selectVal?.value || undefined;
         setRegion(regionValue);
     }, [selectVal?.value]);
-    
-    
-    return(
+
+
+    return (
         <>
             <div className='block-input'>
                 <form className='inp'>
                     <label>
-                        <IoSearch styles={{width: '300px' }}/>
-                        <input value={searchNameValue} onChange={onClickChangeSearch} name="name" type='search' placeholder='Search for a country...'/>
+                        <IoSearch styles={{ width: '300px' }} />
+                        <input value={searchNameValue} onChange={onClickChangeSearch} name="name" type='search' placeholder='Search for a country...' />
                     </label>
                 </form>
 
-                <Select  
+                <Select
                     classNamePrefix='selectStyle'
                     styles={{
                         control: (baseStyles, state) => ({
@@ -49,12 +49,9 @@ export default function Main () {
                             borderColor: state.isHover ? 'var(--colors-ui-base)' : 'var(--colors-ui-base)',
                         }),
                     }}
-                    onChange={setSelectVal} 
-                    options={options} placeholder='Filter by Region' isClearable={true} className='block-select'/>
-
-                
+                    onChange={setSelectVal}
+                    options={options} placeholder='Filter by Region' isClearable={true} className='block-select' />
             </div>
-            
         </>
     );
 }

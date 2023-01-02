@@ -1,5 +1,4 @@
 .block-input {
-    // width: 90%;
     max-width: 1240px;
     display: flex;
     justify-content: space-between;
@@ -68,7 +67,6 @@
     padding: 5px;
     border-radius: var(--radius);
     border: none !important;
-    // font-size: 16px !important;
     
     &>div[id] {
             background-color: var(--colors-ui-base);
