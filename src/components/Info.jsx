@@ -29,11 +29,11 @@ export default function Info(props) {
     let temp = population + '';
     let len = temp.length;
     let formatPopulation = temp.split('').map((char, i) => i === len - 4 || i === len - 7 || i === len - 10 ? char + '.' : char).join('');
-    
+
 
     return (
         <div className="info">
-            <img src={flag} alt={name}  />
+            <img src={flag} alt={name} />
             <div className='info-block'>
                 <ul>
                     <li><h1 ><b>{name}</b></h1></li>

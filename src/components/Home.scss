@@ -28,6 +28,7 @@
     flex-direction: column;
     background-color: var(--colors-ui-base);
     border-radius: var(--radius);
+    transition: all 0.2s;
 
     & img {
         width: auto;
@@ -45,7 +46,13 @@
         cursor: pointer;
         font-weight: 800;
     }
-        @media(max-width:375px) {
-            margin-top: 0;
+    
+    @media(max-width:375px) {
+        margin-top: 0;
+    }
+
+    &:hover {
+        transform: scale(1.04);
+            box-shadow: var(--shadow);
         }
 }

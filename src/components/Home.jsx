@@ -12,7 +12,7 @@ export default function Home({ countries }) {
     const format = (population) => {
         let temp = population + '';
         let len = temp.length;
-        let formatPopulation = temp.split('').map((char, i) => i === len - 4 || i === len - 7 || i === len - 10 ? char + '.' : char ).join('');
+        let formatPopulation = temp.split('').map((char, i) => i === len - 4 || i === len - 7 || i === len - 10 ? char + '.' : char).join('');
         return formatPopulation;
     }
 
@@ -29,7 +29,7 @@ export default function Home({ countries }) {
                             <br />
                             <span key={uuidv4()} onClick={() => navigate(`/country/${c.name}`)} data-key={c.name}>{c.name}</span>
                             <br />
-                            <span key={uuidv4()}><b>Population: </b>{ format(c.population)}</span>
+                            <span key={uuidv4()}><b>Population: </b>{format(c.population)}</span>
                             <br />
                             <span key={uuidv4()}><b>Region: </b>{c.region}</span>
                             <br />
