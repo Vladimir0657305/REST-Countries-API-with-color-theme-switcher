@@ -25,7 +25,7 @@ export default function Home({ countries }) {
                         item.name.toLowerCase().includes(searchNameValue.toLowerCase())
                     ).map(c =>
                         <div className="block-home" key={uuidv4()}>
-                            <img key={uuidv4()} src={c['flags']['png']} onClick={() => navigate(`/country/${c.name}`)} />
+                            <img key={uuidv4()} src={c['flags']['png']} onClick={() => navigate(`/country/${c.name}`)} alt='flag'/>
                             <br />
                             <span key={uuidv4()} onClick={() => navigate(`/country/${c.name}`)} data-key={c.name}>{c.name}</span>
                             <br />
