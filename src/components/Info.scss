@@ -78,7 +78,6 @@
     gap: 10px;
     justify-content: center;
     
-
     & button {
         padding: 0 5px;
     }
@@ -94,8 +93,14 @@
     box-shadow: var(--shadow);
     cursor: pointer;
     transition: all 0.2s;
+
     &:hover {
             transform: scale(1.06);
             box-shadow: var(--shadow);
         }
+}
+
+.lastInfo {
+    color: transparent;
+    margin-top: 40px;
 }

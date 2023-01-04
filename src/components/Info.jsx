@@ -51,13 +51,14 @@ export default function Info(props) {
 
             </div>
             {
-                borders.length>0 &&
+                borders.length > 0 &&
                 <span className='clLi'><b>Border countries: </b>
                     {
                         neighbour.map(b => <button key={uuidv4()} className='infoButton' onClick={() => navigate(`/country/${b.name}`)}>{b.name}</button>)
                     }
                 </span>
             }
+            <div className='lastInfo'>.</div>
         </div>
     );
 }
