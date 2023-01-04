@@ -9,10 +9,11 @@
     grid-template-columns:  repeat(4, minmax(auto, 300px));
 
     @media(max-width:1024px) {
-        grid-template-columns: repeat(3, minmax(auto, 240px));
+        grid-template-columns: repeat(3, minmax(auto, 220px));
     }
     @media(max-width:767px) {
-        grid-template-columns: repeat(2, minmax(auto, 260px));
+        grid-template-columns: repeat(2, minmax(auto, 170px));
+        gap: 10px;
     }
     @media(max-width:375px) {
         grid-template-columns: repeat(1, minmax(auto, 300px));
