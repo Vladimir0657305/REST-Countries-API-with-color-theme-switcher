@@ -36,7 +36,7 @@ export default function Main() {
                 <form className='inp'>
                     <label>
                         <IoSearch styles={{ width: '300px' }} />
-                        <input value={searchNameValue} onChange={onClickChangeSearch} name="name" type='search' placeholder='Search for a country...' />
+                        <input aria-label="Search" value={searchNameValue} onChange={onClickChangeSearch} name="name" type='search' placeholder='Search for a country...' />
                     </label>
                 </form>
 
